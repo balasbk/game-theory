@@ -1,0 +1,10 @@
+{
+    "algorithm": "KPRL",
+    "kernel_gen" : "GenHPK",
+    "kernel_gen_params" : [1,3],
+    "pref_generator" : "macro",
+    "columns_budget" : 500,
+    "iterations" : 100,
+    "solver" : "FictitiousPlay",
+    "solver_params" : [1000000]
+}

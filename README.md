@@ -1,11 +1,3 @@
-# PRL: Preference and Rule Learning
-
-PRL is a preference learning algorithm which learns the maximal margin hypothesis
-by incrementally solving a two-player zero-sum game. The algorithm has theoretical
-guarantees about its convergence to the optimal solution.
-PRL has been presented @ AAAI 2019; the reference paper is:
-
-M. Polato and F. Aiolli, "[Interpretable preference learning: a game theoretic framework for large margin on-line feature and rule learning]", AAAI 2019.
 
 
 ## Installing PRL with Pypi (Python 3)
@@ -73,40 +65,12 @@ The meaning of each configuration attribute is described in the following:
 Inside the `config` folder an example of configuration file which uses `KPRL` is also provided.
 
 ### Run PRL
-Once the configuration file is ready, PRL can be trained and evaluated by using the provided script
-```sh
-python run_prl.py [OPTIONS] dataset
-```
-where `dataset` must be an svmlight file and the possible options are the following:
-* `-c CONFIG_FILE`, `--config_file CONFIG_FILE`: `CONFIG_FILE` specifies the path of the configuration file (default: `config/config.json`);
-* `-t SIZE`, `--test_size SIZE`: `SIZE` specifies the portion (in percentage, float between 0 and 1) of the dataset will be used as test set (default: 0.3);
-* `-n NORM`, `--normalize NORM`: `NORM` specifies the type of data normalization - {0:None, 1:Min-Max scaling, 2:L2 normalization} (default: 1)
-* `-s SEED`, `--seed SEED`: ``SEED`` specifies the pseudo-random seed. Useful for replicability purposes (default: 42);
-* `-v`, `--verbose`: whether the output it is verbose or not;
-* `-h`, `--help`: shows the help.
 
-An example of run, using the configuration file as above, is:
 ```sh
-python3 run_prl.py -t 0.2 -s 1 -v
+python3 r.py -s 1 -v  dataset/oh_tic-tac-toe.svmlight
 ```
 which runs PRL using 80% of the dataset as training set and the rest as test set, using 1 as pseudo-random seed and a verbose output.
 
 ### Evaluation
 The evaluation is computed in terms of *accuracy*, *balanced accuracy* and it also shows the *confusion matrix*.
 
-### Version
-0.94b
-
-### Requirements
-PRL requires the following python modules:
-* [CVXOPT]
-* [Numpy]
-* [Scikit-learn]
-* [SciPy]
-
-
-[Scikit-learn]: <http://scikit-learn.org/stable/>
-[Numpy]: <http://www.numpy.org/>
-[CVXOPT]: <http://cvxopt.org/>
-[SciPy]: <https://www.scipy.org/>
-[Interpretable preference learning: a game theoretic framework for large margin on-line feature and rule learning]: <https://arxiv.org/abs/1812.07895>
